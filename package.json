@@ -3,11 +3,13 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://jellifeeshcodes.github.io/AngelikaDael",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@react95/clippy": "^2.0.2",
@@ -38,16 +40,4 @@
     "typescript-eslint": "^8.35.1",
     "vite": "^7.0.4"
   }
-  {
-  "homepage": "https://jellifeeshcodes.github.io/AngelikaDael",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "deploy": "gh-pages -d dist"
-  }
 }
-
-}
-
-
