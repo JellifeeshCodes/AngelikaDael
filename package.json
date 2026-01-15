@@ -40,7 +40,7 @@
   }
 }
 {
-  "homepage": "https://jellifeeshcodes.github.io/Angelika-Dael",
+  "homepage": "https://jellifeeshcodes.github.io/AngelikaDael",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -48,3 +48,4 @@
     "deploy": "gh-pages -d dist"
   }
 }
+
