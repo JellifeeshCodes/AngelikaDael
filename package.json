@@ -1,5 +1,5 @@
 {
-  "name": "windows95",
+  "name": "Angelika Dael's Portfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -38,8 +38,7 @@
     "typescript-eslint": "^8.35.1",
     "vite": "^7.0.4"
   }
-}
-{
+  {
   "homepage": "https://jellifeeshcodes.github.io/AngelikaDael",
   "scripts": {
     "dev": "vite",
@@ -48,4 +47,7 @@
     "deploy": "gh-pages -d dist"
   }
 }
+
+}
+
 
