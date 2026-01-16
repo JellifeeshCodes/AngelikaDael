@@ -10,26 +10,15 @@ import Resume from "./components/Resume";
 import Game from "./components/Game";
 import { useAuth } from "./store/auth";
 
-// Correct relative import for Vite
+// VITE FIX: Use a relative path to your assets folder
 import winLogo from './assets/logo.png'; 
 
 function App() {
   const authenticated = useAuth((state) => state.authinicated);
 
-  // Background styling for the Windows 95 desktop
-  const desktopStyle: React.CSSProperties = {
-    width: "100vw",
-    height: "100vh",
-    backgroundColor: "#098684",
-    overflow: "hidden",
-    position: "relative",
-    display: "flex",
-    flexDirection: "column",
-  };
-
   return (
-    <div style={desktopStyle}>
-      {/* Background Logo - Centered and behind everything */}
+    <div style={{ width: "100vw", height: "100vh", backgroundColor: "#098684", position: "relative", overflow: "hidden" }}>
+      {/* Centered Background Logo */}
       <img 
         src={winLogo} 
         alt="Windows 95 Logo" 
@@ -40,64 +29,27 @@ function App() {
           left: "50%",
           transform: "translate(-50%, -70%)",
           zIndex: 0,
-          opacity: 0.8,
-          pointerEvents: "none" // Prevents interfering with clicks
+          pointerEvents: "none" // Icons can still be clicked over the logo
         }}
       />
 
-      {/* Conditionally render Login or Desktop */}
       {!authenticated ? (
         <Login />
       ) : (
         <ClippyProvider agentName={AGENTS.MERLIN}>
-          {/* Main Desktop Area */}
-          <div 
-            style={{ 
-              flex: 1, 
-              padding: "20px", 
-              display: "flex", 
-              flexDirection: "column", 
-              gap: "20px",
-              zIndex: 1,
-              position: "relative"
-            }}
-          >
-            <DesktopIcon 
-              icon={<Amovie2 variant="32x32_4" />} 
-              name="Video"
-            >
-              <iframe
-                width="420"
-                height="315"
-                src="https://www.youtube.com/embed/v4yk_eXNbjo"
-                allowFullScreen
-                title="Video Player"
-              />
+          <div style={{ padding: "20px", display: "flex", flexDirection: "column", gap: "20px", zIndex: 1, position: "relative" }}>
+            <DesktopIcon icon={<Amovie2 variant="32x32_4" />} name="Video">
+              <iframe width="420" height="315" src="https://www.youtube.com/embed/v4yk_eXNbjo" allowFullScreen title="Video Player" />
             </DesktopIcon>
 
             <DesktopIcon icon={<Inetcpl1313 variant="32x32_4"/>} name="Browser">
-              <iframe 
-                width={800} 
-                height={500} 
-                src="https://swisscows.com" 
-                title="Browser"
-              />
+              <iframe width={800} height={500} src="https://swisscows.com" title="Browser" />
             </DesktopIcon>
 
-            <DesktopIcon width={650} icon={<Wordpad variant="32x32_4"/>} name="Resume">
-              <Resume/>
-            </DesktopIcon>
-
-            <DesktopIcon width={400} height={400} icon={<Joy102 variant="32x32_4"/>} name="Game">
-              <Game/>
-            </DesktopIcon>
-
-            <DesktopIcon width={400} icon={<Mail variant="32x32_4"/>} name="Contact">
-              <Contact/>
-            </DesktopIcon>
+            <DesktopIcon width={650} icon={<Wordpad variant="32x32_4"/>} name="Resume"><Resume/></DesktopIcon>
+            <DesktopIcon width={400} height={400} icon={<Joy102 variant="32x32_4"/>} name="Game"><Game/></DesktopIcon>
+            <DesktopIcon width={400} icon={<Mail variant="32x32_4"/>} name="Contact"><Contact/></DesktopIcon>
           </div>
-          
-          {/* Windows Taskbar */}
           <WindowBar />
         </ClippyProvider>
       )}
