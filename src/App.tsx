@@ -5,15 +5,15 @@ import { useAuth } from "./store/auth";
 import DesktopIcon from "./components/DesktopIcon";
 import Contact from "./components/Contact";
 import { Amovie2, Inetcpl1313, Joy102, Wordpad, Mail } from "@react95/icons";
-import { Video } from "@react95/core";
 import Resume from "./components/Resume";
 import Game from "./components/Game";
+import winLogo from 'C:\Users\jelli\OneDrive\Desktop\Windows-95\win95-portfolio\src\assets\logo.png';
 
 function App() {
   const authinicated = useAuth((state) => state.authinicated);
   return (
     <div style={{ width: "100%", background: "#098684", minHeight: "100vh",position:"relative" }}>
-      <img src="/logo.png" width={400} style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-70%)"}}/>
+      <img src={winLogo} alt="Windows 95 Logo" width={400} style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-70%)"}}/>
       {!authinicated && <Login />}
 
       {authinicated && (
