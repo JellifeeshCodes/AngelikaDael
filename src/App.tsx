@@ -7,20 +7,34 @@ import Contact from "./components/Contact";
 import { Amovie2, Inetcpl1313, Joy102, Wordpad, Mail } from "@react95/icons";
 import Resume from "./components/Resume";
 import Game from "./components/Game";
-import winLogo from 'C:\Users\jelli\OneDrive\Desktop\Windows-95\win95-portfolio\src\assets\logo.png';
+
+// FIXED: Use a relative path instead of a C:\ drive path
+import winLogo from './assets/logo.png'; 
 
 function App() {
   const authinicated = useAuth((state) => state.authinicated);
+
   return (
-    <div style={{ width: "100%", background: "#098684", minHeight: "100vh",position:"relative" }}>
-      <img src={winLogo} alt="Windows 95 Logo" width={400} style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-70%)"}}/>
+    <div style={{ width: "100%", background: "#098684", minHeight: "100vh", position: "relative" }}>
+      {/* Background Logo */}
+      <img 
+        src={winLogo} 
+        alt="Windows 95 Logo" 
+        width={400} 
+        style={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -70%)",
+          zIndex: 0
+        }}
+      />
+
       {!authinicated && <Login />}
 
       {authinicated && (
         <ClippyProvider agentName={AGENTS.MERLIN}>
-          <div className="fixed">
-{/* Check the lines above this to ensure all <div> tags are closed! */}
-
+          <div className="fixed" style={{ zIndex: 1, position: "relative" }}>
             <DesktopIcon 
               icon={<Amovie2 variant="32x32_4" />} 
               name="Video"
@@ -34,18 +48,22 @@ function App() {
             </DesktopIcon>
 
             <DesktopIcon icon={<Inetcpl1313 variant="32x32_4"/>} name="Browser">
-             <iframe width={800} height={500} src="https://swisscows.com"/>
+              <iframe width={800} height={500} src="https://swisscows.com"/>
             </DesktopIcon>
+
             <DesktopIcon width={650} icon={<Wordpad variant="32x32_4"/>} name="Resume">
-             <Resume/>
+              <Resume/>
             </DesktopIcon>
+
             <DesktopIcon width={400} height={400} icon={<Joy102 variant="32x32_4"/>} name="Game">
-             <Game/>
+              <Game/>
             </DesktopIcon>
+
             <DesktopIcon width={400} icon={<Mail variant="32x32_4"/>} name="Contact">
-             <Contact/>
+              <Contact/>
             </DesktopIcon>
           </div>
+          
           <WindowBar />
         </ClippyProvider>
       )}
