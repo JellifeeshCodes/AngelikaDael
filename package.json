@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://jellifeeshcodes.github.io/AngelikaDael",
+  "homepage": "https://jellifeeshcodes.github.io/AngelikaDael/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -41,3 +41,4 @@
     "vite": "^7.0.4"
   }
 }
+
