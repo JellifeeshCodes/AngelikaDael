@@ -8,6 +8,7 @@ import DesktopIcon from "./components/DesktopIcon";
 import Contact from "./components/Contact";
 import Resume from "./components/Resume";
 import Game from "./components/Game";
+import ArtGallery from "./components/ArtGallery";
 import { useAuth } from "./store/auth";
 
 // VITE FIX: Use a relative path to your assets folder
