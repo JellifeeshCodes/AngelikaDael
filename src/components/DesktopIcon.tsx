@@ -1,9 +1,7 @@
-// DesktopIcon.js
-import React, { type ReactElement, type ReactNode,type ComponentType } from "react";
+import React, { type ReactElement, type ReactNode, type ComponentType } from "react";
 import { Modal, TitleBar, useModal } from "@react95/core";
 import { useWindowsStore } from "../store/windows";
 
-// Centralized style objects for maintainability and clarity
 const styles = {
   desktopIcon: {
     alignItems: "center",
@@ -16,54 +14,12 @@ const styles = {
     width: "100px",
     gap: "10px",
   },
-  iconImage: {
-    height: "64px",
-    marginBottom: "8px",
-    width: "64px",
-  },
   iconName: {
     color: "#ffffff",
     fontSize: "14px",
     margin: "0",
     textShadow: "1px 1px 3px rgba(0, 0, 0, 0.7)",
     userSelect: "none",
-  },
-  window: {
-    background: "#ffffff",
-    borderRadius: "8px",
-    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
-    display: "flex",
-    flexDirection: "column",
-  },
-  titleBar: {
-    alignItems: "center",
-    background: "#f0f0f0",
-    borderTopLeftRadius: "8px",
-    borderTopRightRadius: "8px",
-    cursor: "move",
-    display: "flex",
-    fontWeight: "bold",
-    justifyContent: "space-between",
-    padding: "8px",
-  },
-  closeButton: {
-    alignItems: "center",
-    background: "#ff5f56",
-    border: "1px solid #e04440",
-    borderRadius: "50%",
-    color: "#9a0000",
-    cursor: "pointer",
-    display: "flex",
-    fontSize: "10px",
-    height: "15px",
-    justifyContent: "center",
-    lineHeight: "10px",
-    width: "15px",
-  },
-  windowContent: {
-    flex: "1",
-    overflow: "auto",
-    padding: "20px",
   },
 } as const;
 
@@ -73,9 +29,10 @@ interface WindowProps {
   children: ReactNode;
   width?: number;
   height?: number;
-  onClose:()=>void;
+  onClose: () => void;
 }
-const Window = ({ title, onClose, children, icon, width, height }:WindowProps) => {
+
+const Window = ({ title, onClose, children, icon, width, height }: WindowProps) => {
   const { minimize } = useModal();
   return (
     <SafeModal
@@ -102,13 +59,9 @@ const Window = ({ title, onClose, children, icon, width, height }:WindowProps) =
   );
 };
 
-/**
- * A desktop icon that opens a window on double-click.
- */
-
 interface DesktopIconProps {
   icon: ReactElement<{ variant?: string }>;
-  name:string;
+  name: string;
   children: ReactNode;
   width?: number;
   height?: number;
@@ -132,17 +85,25 @@ const DesktopIcon = ({
     closeWindow(name);
   };
 
+  // Safely check if the icon is a standard HTML tag (like <img>) vs a React95 icon component
+  const renderIcon = (variantSize: string) => {
+    if (typeof icon.type === "string") {
+      return icon;
+    }
+    return React.cloneElement(icon, { variant: variantSize });
+  };
+
   return (
     <>
       <div style={styles.desktopIcon} onDoubleClick={handleDoubleClick}>
-        {React.cloneElement(icon, { variant: "32x32_4" })}
+        {renderIcon("32x32_4")}
         <p style={styles.iconName}>{name}</p>
       </div>
       {isOpen && (
         <Window
           width={width}
           height={height}
-          icon={React.cloneElement(icon, { variant: "16x16_4" })}
+          icon={renderIcon("16x16_4")}
           title={name}
           onClose={handleCloseWindow}
         >
@@ -152,7 +113,6 @@ const DesktopIcon = ({
     </>
   );
 };
-
 
 export default DesktopIcon;
 
