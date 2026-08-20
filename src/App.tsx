@@ -1,6 +1,6 @@
 import React from 'react';
 import { AGENTS, ClippyProvider } from "@react95/clippy";
-import { Amovie2, Inetcpl1313, Joy102, Wordpad, Mail } from "@react95/icons";
+import { Amovie2, Inetcpl1313, Joy102, Wordpad, Mail, CdMusic } from "@react95/icons";
 
 import Login from "./components/Login";
 import WindowBar from "./components/WindowBar";
@@ -15,7 +15,8 @@ import { useAuth } from "./store/auth";
 import winLogo from './assets/logo.png'; 
 
 function App() {
-  const authenticated = useAuth((state) => state.authinicated);
+  // Fixed typo from 'authinicated' to 'authenticated'
+  const authenticated = useAuth((state) => state.authenticated);
 
   return (
     <div style={{ width: "100vw", height: "100vh", backgroundColor: "#098684", position: "relative", overflow: "hidden" }}>
@@ -48,6 +49,7 @@ function App() {
             </DesktopIcon>
 
             <DesktopIcon width={650} icon={<Wordpad variant="32x32_4"/>} name="Resume"><Resume/></DesktopIcon>
+            <DesktopIcon width={650} icon={<CdMusic variant="32x32_4"/>} name="Art Gallery"><ArtGallery/></DesktopIcon>
             <DesktopIcon width={400} height={400} icon={<Joy102 variant="32x32_4"/>} name="Game"><Game/></DesktopIcon>
             <DesktopIcon width={400} icon={<Mail variant="32x32_4"/>} name="Contact"><Contact/></DesktopIcon>
           </div>
