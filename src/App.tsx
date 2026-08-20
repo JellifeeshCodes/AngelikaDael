@@ -54,7 +54,7 @@ function App() {
               position: "relative" 
             }}
           >
-            <DesktopIcon icon={<Amovie2 variant="32x32_4" />} name="Video">
+            <DesktopIcon icon={<Amovie2 />} name="Video">
               <iframe 
                 width="420" 
                 height="315" 
@@ -64,7 +64,7 @@ function App() {
               />
             </DesktopIcon>
 
-            <DesktopIcon icon={<Inetcpl1313 variant="32x32_4" />} name="Browser">
+            <DesktopIcon icon={<Inetcpl1313 />} name="Browser">
               <iframe 
                 width={800} 
                 height={500} 
@@ -73,19 +73,20 @@ function App() {
               />
             </DesktopIcon>
 
-            <DesktopIcon width={650} icon={<Wordpad variant="32x32_4" />} name="Resume">
+            <DesktopIcon width={650} icon={<Wordpad />} name="Resume">
               <Resume />
             </DesktopIcon>
 
-            <DesktopIcon width={650} icon={<Mspaint variant="32x32_4" />} name="Art Gallery">
+            {/* Fixed: Replaced undefined Mspaint with imported Pbrush1 icon */}
+            <DesktopIcon width={650} icon={<Pbrush1 />} name="Art Gallery">
               <ArtGallery />
             </DesktopIcon>
 
-            <DesktopIcon width={400} height={400} icon={<Joy102 variant="32x32_4" />} name="Game">
+            <DesktopIcon width={400} height={400} icon={<Joy102 />} name="Game">
               <Game />
             </DesktopIcon>
 
-            <DesktopIcon width={400} icon={<Mail variant="32x32_4" />} name="Contact">
+            <DesktopIcon width={400} icon={<Mail />} name="Contact">
               <Contact />
             </DesktopIcon>
           </div>
