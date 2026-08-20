@@ -83,7 +83,7 @@ function App() {
               width={650} 
               icon={
                 <img 
-                  src="/art.png" 
+                  src="public/art.png" 
                   alt="Art Gallery" 
                   style={{ width: '32px', height: '32px', display: 'block' }} 
                 />
