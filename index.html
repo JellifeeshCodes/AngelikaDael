@@ -5,8 +5,38 @@
     <link rel="icon" type="image/svg+xml" href="vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Windows 95</title>
-    <!-- React95 Stylesheet via CDN -->
+    
+    <!-- React95 Stylesheet -->
     <link rel="stylesheet" href="https://unpkg.com/@react95/core/dist/styles.css" />
+
+    <!-- Custom Taskbar & Window Chrome Fixes -->
+    <style>
+      /* Ensure the windows and modal chrome have visible backgrounds and borders */
+      [role="dialog"], 
+      .window, 
+      [class*="Modal"] {
+        background-color: #c0c0c0 !important;
+        border: 2px solid !important;
+        border-color: #ffffff #808080 #808080 #ffffff !important;
+        box-shadow: 1px 1px 0px 1px #000000 !important;
+      }
+
+      /* Fix Taskbar at bottom of screen */
+      [class*="TaskBar"], 
+      [class*="WindowBar"],
+      footer {
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: 28px !important;
+        background-color: #c0c0c0 !important;
+        border-top: 2px solid #ffffff !important;
+        display: flex !important;
+        align-items: center !important;
+        z-index: 9999 !important;
+      }
+    </style>
   </head>
   <body style="margin: 0;">
     <div id="root"></div>
