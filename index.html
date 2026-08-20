@@ -5,40 +5,23 @@
     <link rel="icon" type="image/svg+xml" href="vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Windows 95</title>
-    
-    <!-- React95 Stylesheet -->
-    <link rel="stylesheet" href="https://unpkg.com/@react95/core/dist/styles.css" />
-
-    <!-- Custom Taskbar & Window Chrome Fixes -->
+    <!-- Windows 95 Font -->
+    <link rel="stylesheet" href="https://unpkg.com/ms-sans-serif/ms_sans_serif.css" />
     <style>
-      /* Ensure the windows and modal chrome have visible backgrounds and borders */
-      [role="dialog"], 
-      .window, 
-      [class*="Modal"] {
-        background-color: #c0c0c0 !important;
-        border: 2px solid !important;
-        border-color: #ffffff #808080 #808080 #ffffff !important;
-        box-shadow: 1px 1px 0px 1px #000000 !important;
+      * {
+        box-sizing: border-box;
+        font-family: "ms_sans_serif", Tahoma, sans-serif !important;
+        -webkit-font-smoothing: none;
       }
-
-      /* Fix Taskbar at bottom of screen */
-      [class*="TaskBar"], 
-      [class*="WindowBar"],
-      footer {
-        position: fixed !important;
-        bottom: 0 !important;
-        left: 0 !important;
-        width: 100vw !important;
-        height: 28px !important;
-        background-color: #c0c0c0 !important;
-        border-top: 2px solid #ffffff !important;
-        display: flex !important;
-        align-items: center !important;
-        z-index: 9999 !important;
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #098684;
       }
     </style>
   </head>
-  <body style="margin: 0;">
+  <body>
     <div id="root"></div>
     <script type="module" src="src/main.tsx"></script>
   </body>
