@@ -70,7 +70,7 @@ function App() {
               <iframe 
                 width={800} 
                 height={500} 
-                src="https://swisscows.com" 
+                src="https://duckduckgo.com" 
                 title="Browser" 
               />
             </DesktopIcon>
