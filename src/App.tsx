@@ -11,9 +11,9 @@ import Game from "./components/Game";
 import ArtGallery from "./components/ArtGallery";
 import { useAuth } from "./store/auth";
 
-// Import local assets so Vite processes the correct paths for GitHub Pages
+// Import your custom images from src/assets
 import winLogo from './assets/logo.png'; 
-import artIcon from './assets/art.png'; // Make sure art.png is inside your src/assets folder
+import artIcon from './assets/art.png';
 
 function App() {
   const authenticated = useAuth((state) => state.authenticated);
@@ -28,7 +28,6 @@ function App() {
         overflow: "hidden" 
       }}
     >
-      {/* Centered Windows 95 Background Logo */}
       <img 
         src={winLogo} 
         alt="Windows 95 Logo" 
@@ -80,19 +79,19 @@ function App() {
               <Resume />
             </DesktopIcon>
 
-<DesktopIcon 
-  width={650} 
-  icon={
-    <img 
-      src={`${import.meta.env.BASE_URL}art.png`} 
-      alt="Art Gallery" 
-      style={{ width: '32px', height: '32px', display: 'block' }} 
-    />
-  } 
-  name="Art Gallery"
->
-  <ArtGallery />
-</DesktopIcon>
+            <DesktopIcon 
+              width={650} 
+              icon={
+                <img 
+                  src={artIcon} 
+                  alt="" 
+                  style={{ width: '32px', height: '32px', display: 'block' }} 
+                />
+              } 
+              name="Art Gallery"
+            >
+              <ArtGallery />
+            </DesktopIcon>
 
             <DesktopIcon width={400} height={400} icon={<Joy102 variant="32x32_4" />} name="Game">
               <Game />
