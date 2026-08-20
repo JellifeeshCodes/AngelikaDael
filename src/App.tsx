@@ -1,6 +1,6 @@
 import React from 'react';
 import { AGENTS, ClippyProvider } from "@react95/clippy";
-import { Amovie2, Inetcpl1313, Joy102, Wordpad, Mail, Paint } from "@react95/icons";
+import { Amovie2, Inetcpl1313, Joy102, Wordpad, Mail } from "@react95/icons";
 
 import Login from "./components/Login";
 import WindowBar from "./components/WindowBar";
@@ -79,7 +79,17 @@ function App() {
               <Resume />
             </DesktopIcon>
 
-            <DesktopIcon width={650} icon={<Paint variant="32x32_4" />} name="Art Gallery">
+            <DesktopIcon 
+              width={650} 
+              icon={
+                <img 
+                  src="/art.png" 
+                  alt="Art Gallery" 
+                  style={{ width: '32px', height: '32px', display: 'block' }} 
+                />
+              } 
+              name="Art Gallery"
+            >
               <ArtGallery />
             </DesktopIcon>
 
