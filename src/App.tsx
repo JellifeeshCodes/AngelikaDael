@@ -1,6 +1,6 @@
 import React from 'react';
 import { AGENTS, ClippyProvider } from "@react95/clippy";
-import { Amovie2, Inetcpl1313, Joy102, Wordpad, Mail } from "@react95/icons";
+import { Amovie2, Inetcpl1313, Joy102, Wordpad, Mail, Pbrush1 } from "@react95/icons";
 
 import Login from "./components/Login";
 import WindowBar from "./components/WindowBar";
@@ -11,9 +11,7 @@ import Game from "./components/Game";
 import ArtGallery from "./components/ArtGallery";
 import { useAuth } from "./store/auth";
 
-// Import your custom images from src/assets
 import winLogo from './assets/logo.png'; 
-import artIcon from './assets/art.png';
 
 function App() {
   const authenticated = useAuth((state) => state.authenticated);
@@ -79,17 +77,7 @@ function App() {
               <Resume />
             </DesktopIcon>
 
-            <DesktopIcon 
-              width={650} 
-              icon={
-                <img 
-                  src={artIcon} 
-                  alt="" 
-                  style={{ width: '32px', height: '32px', display: 'block' }} 
-                />
-              } 
-              name="Art Gallery"
-            >
+            <DesktopIcon width={650} icon={<Pbrush1 variant="32x32_4" />} name="Art Gallery">
               <ArtGallery />
             </DesktopIcon>
 
