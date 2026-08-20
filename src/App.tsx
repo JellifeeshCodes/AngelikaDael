@@ -77,7 +77,7 @@ function App() {
               <Resume />
             </DesktopIcon>
 
-            <DesktopIcon width={650} icon={<Pbrush1 variant="32x32_4" />} name="Art Gallery">
+            <DesktopIcon width={650} icon={<Mspaint variant="32x32_4" />} name="Art Gallery">
               <ArtGallery />
             </DesktopIcon>
 
