@@ -1,5 +1,5 @@
 import React, { type ReactElement, type ReactNode, type ComponentType } from "react";
-import { Modal, TitleBar, useModal } from "@react95/core";
+import { Modal, TitleBar } from "@react95/core";
 import { useWindowsStore } from "../store/windows";
 
 const styles = {
@@ -24,7 +24,7 @@ const styles = {
 } as const;
 
 interface WindowProps {
-  icon: ReactElement<{ variant?: string }>;
+  icon: ReactNode; 
   title: string;
   children: ReactNode;
   width?: number;
@@ -33,18 +33,13 @@ interface WindowProps {
 }
 
 const Window = ({ title, onClose, children, icon, width, height }: WindowProps) => {
-  const { minimize } = useModal();
+  // Removed useModal() to prevent Context-related white screen crashes
   return (
     <SafeModal
       id={title}
       icon={icon}
       title={title}
       titleBarOptions={[
-        <TitleBar.Minimize
-          style={{ marginBlock: "auto" }}
-          key="maximize"
-          onClick={() => minimize(title)}
-        />,
         <TitleBar.Close
           style={{ marginBlock: "auto" }}
           key="close"
@@ -52,7 +47,7 @@ const Window = ({ title, onClose, children, icon, width, height }: WindowProps) 
         />,
       ]}
     >
-      <Modal.Content width={`${width}px`} height={`${height}px`}>
+      <Modal.Content width={width ? `${width}px` : undefined} height={height ? `${height}px` : undefined}>
         {children}
       </Modal.Content>
     </SafeModal>
@@ -60,7 +55,7 @@ const Window = ({ title, onClose, children, icon, width, height }: WindowProps) 
 };
 
 interface DesktopIconProps {
-  icon: ReactElement<{ variant?: string }>;
+  icon: ReactNode; 
   name: string;
   children: ReactNode;
   width?: number;
@@ -85,12 +80,15 @@ const DesktopIcon = ({
     closeWindow(name);
   };
 
-  // Safely check if the icon is a standard HTML tag (like <img>) vs a React95 icon component
+  // Added isValidElement check to prevent crashes if an icon prop is missing
   const renderIcon = (variantSize: string) => {
-    if (typeof icon.type === "string") {
-      return icon;
+    if (!React.isValidElement(icon)) {
+      return null; 
     }
-    return React.cloneElement(icon, { variant: variantSize });
+    if (typeof icon.type === "string") {
+      return icon; 
+    }
+    return React.cloneElement(icon as ReactElement, { variant: variantSize } as Record<string, unknown>);
   };
 
   return (
