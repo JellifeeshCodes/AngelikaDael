@@ -11,8 +11,9 @@ import Game from "./components/Game";
 import ArtGallery from "./components/ArtGallery";
 import { useAuth } from "./store/auth";
 
-// VITE FIX: Relative path to assets folder for central logo
+// Import local assets so Vite processes the correct paths for GitHub Pages
 import winLogo from './assets/logo.png'; 
+import artIcon from './assets/art.png'; // Make sure art.png is inside your src/assets folder
 
 function App() {
   const authenticated = useAuth((state) => state.authenticated);
@@ -83,7 +84,7 @@ function App() {
               width={650} 
               icon={
                 <img 
-                  src="/art.png" 
+                  src={artIcon} 
                   alt="Art Gallery" 
                   style={{ width: '32px', height: '32px', display: 'block' }} 
                 />
