@@ -68,7 +68,7 @@ function App() {
               <iframe 
                 width={800} 
                 height={500} 
-                src="https://duckduckgo.com" 
+                src="https://bing.com" 
                 title="Browser" 
               />
             </DesktopIcon>
