@@ -80,19 +80,19 @@ function App() {
               <Resume />
             </DesktopIcon>
 
-            <DesktopIcon 
-              width={650} 
-              icon={
-                <img 
-                  src={artIcon} 
-                  alt="Art Gallery" 
-                  style={{ width: '32px', height: '32px', display: 'block' }} 
-                />
-              } 
-              name="Art Gallery"
-            >
-              <ArtGallery />
-            </DesktopIcon>
+<DesktopIcon 
+  width={650} 
+  icon={
+    <img 
+      src={`${import.meta.env.BASE_URL}art.png`} 
+      alt="Art Gallery" 
+      style={{ width: '32px', height: '32px', display: 'block' }} 
+    />
+  } 
+  name="Art Gallery"
+>
+  <ArtGallery />
+</DesktopIcon>
 
             <DesktopIcon width={400} height={400} icon={<Joy102 variant="32x32_4" />} name="Game">
               <Game />
