@@ -49,7 +49,7 @@ function App() {
             </DesktopIcon>
 
             <DesktopIcon width={650} icon={<Wordpad variant="32x32_4"/>} name="Resume"><Resume/></DesktopIcon>
-            <DesktopIcon width={650} icon={<CdMusic variant="32x32_4"/>} name="Art Gallery"><ArtGallery/></DesktopIcon>
+            <DesktopIcon width={650} icon={<img src="/art.png" alt="Art Gallery" style={{ width: '32px', height: '32px' }} />} name="Art Gallery"><ArtGallery/></DesktopIcon>
             <DesktopIcon width={400} height={400} icon={<Joy102 variant="32x32_4"/>} name="Game"><Game/></DesktopIcon>
             <DesktopIcon width={400} icon={<Mail variant="32x32_4"/>} name="Contact"><Contact/></DesktopIcon>
           </div>
